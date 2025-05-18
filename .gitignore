@@ -4,8 +4,8 @@
 
 # Project
 _output/**
-*.env.mk
-*.env
+/*.env.mk
+/*.env
 *.test
 *.out
 *.a
