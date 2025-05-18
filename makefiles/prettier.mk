@@ -45,7 +45,7 @@ prettier-help:
 
 PRETTIER_CMD ?= prettier
 PRETTIER_VERSION ?= latest
-PRETTIER_TARGET ?= "**/*.{md,yaml,yml,json,xml,toml,js,jsx,ts,html,css}"
+PRETTIER_TARGET ?= "**/*.{md,yaml,yml,json,toml,js,jsx,ts,html,css}"
 PRETTIER_OPTION ?= --check
 
 #├─────────────────────────────────────────────────────────────────────────────┤
