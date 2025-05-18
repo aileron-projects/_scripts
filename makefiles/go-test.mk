@@ -109,7 +109,7 @@ go-test-usage:
 	#   - make go-test GO_TEST_TAGS="integration"
 
 .PHONY: go-test
-go-test: go-test-install
+go-test:
 	$(info INFO: GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED))
 	$(GO_TEST_CMD) $(ARGS) $(GO_TEST_TARGET)
 ifneq ($(GO_TEST_COVERAGE),)
