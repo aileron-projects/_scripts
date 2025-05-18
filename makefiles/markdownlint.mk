@@ -14,7 +14,7 @@ VARIABLES [default value]:
   - MARKDOWNLINT_CMD     : markdownlint command. [markdownlint]
   - MARKDOWNLINT_VERSION : markdownlint version to install. [latest]
   - MARKDOWNLINT_TARGET  : target of lint. [./]
-  - MARKDOWNLINT_OPTION  : markdownlint command line option. []
+  - MARKDOWNLINT_OPTION  : markdownlint command line option. [--ignore _scripts/]
 
 REFERENCES:
   - https://github.com/DavidAnson/markdownlint
@@ -43,7 +43,7 @@ markdownlint-help:
 MARKDOWNLINT_CMD ?= markdownlint
 MARKDOWNLINT_VERSION ?= latest
 MARKDOWNLINT_TARGET ?= ./
-MARKDOWNLINT_OPTION ?=
+MARKDOWNLINT_OPTION ?= --ignore _scripts/
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 
