@@ -63,7 +63,8 @@ runs:
     - shell: bash
       id: go-version
       run: |
-        v=$(go version | awk '{print $3}')
+        v=$(go env GOVERSION)
+        echo "v=${v}"
         echo "v=${v}" >> $GITHUB_OUTPUT
     - shell: bash
       run: |
