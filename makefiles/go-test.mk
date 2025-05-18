@@ -144,7 +144,7 @@ go-test-qemu:
 	echo ""; \
 	echo "INFO: Testing $$target"; \
 	$(GO_TEST_CMD) $(ARGS) -c -o $$target $$target; \
-	find $$target -name "*.test" | xargs -i bash -c "cd $$target && $(qemu_cmd_$(GOARCH)) {}; rm -f {}"; \
+	find $$target -name "*.test" | xargs -i bash -c "set -e; cd $$target && $(qemu_cmd_$(GOARCH)) {}; rm -f {}" || exit 1; \
 	done
 
 #├─────────────────────────────────────────────────────────────────────────────┤
