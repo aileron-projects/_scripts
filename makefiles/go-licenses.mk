@@ -53,7 +53,7 @@ GO_LICENSES_CMD ?= $(GOBIN)go-licenses
 GO_LICENSES_VERSION ?= latest
 GO_LICENSES_TARGET ?= ./...
 GO_LICENSES_OUTPUT ?= _output/go-licenses.csv
-GO_LICENSES_OPTION_CHECK ?= --allowed_licenses=MIT,Apache-2.0,BSD-2-Clause,BSD-3-Clause,BSD-4-Clause.ISC
+GO_LICENSES_OPTION_CHECK ?= --allowed_licenses=MIT,Apache-2.0,BSD-2-Clause,BSD-3-Clause,BSD-4-Clause,ISC
 GO_LICENSES_OPTION_REPORT ?= 
 
 #├─────────────────────────────────────────────────────────────────────────────┤
