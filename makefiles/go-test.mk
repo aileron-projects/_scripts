@@ -111,9 +111,9 @@ go-test-usage:
 .PHONY: go-test
 go-test:
 	$(info INFO: GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED))
+	mkdir -p $(dir $(GO_TEST_COVERAGE))
 	$(GO_TEST_CMD) $(ARGS) $(GO_TEST_TARGET)
 ifneq ($(GO_TEST_COVERAGE),)
-	mkdir -p $(dir $(GO_TEST_COVERAGE))
 	@$(GO_CMD) tool cover -html=$(GO_TEST_COVERAGE) -o $(basename $(GO_TEST_COVERAGE)).html
 	@$(GO_CMD) tool cover -func=$(GO_TEST_COVERAGE) -o $(basename $(GO_TEST_COVERAGE)).func.txt
 	@echo ================================================================================
