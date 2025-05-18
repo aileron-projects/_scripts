@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/go-fmt@main
 
   license:
@@ -28,7 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/go-licenses@main
 
   vet:
@@ -37,7 +39,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/go-vet@main
 
   lint:
@@ -46,5 +49,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/golangci-lint@main

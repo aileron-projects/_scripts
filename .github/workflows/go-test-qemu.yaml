@@ -37,6 +37,9 @@ jobs:
           - { arch: "mipsle", arm: "" }
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/go-test-qemu@main
         with:
           go-arch: ${{ matrix.arch }}

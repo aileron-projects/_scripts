@@ -58,6 +58,9 @@ jobs:
           - { os: "windows", arch: "arm64", arm: "" }
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/go-build@main
         with:
           go-os: ${{ matrix.os }}
@@ -74,6 +77,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
       - uses: actions/download-artifact@v4
         with:
           path: _output/artifacts/

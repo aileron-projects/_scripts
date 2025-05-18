@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/cspell@main
 
   markdown-lint:
@@ -28,7 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/markdownlint@main
 
   prettier:
@@ -37,7 +39,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/prettier@main
 
   copyleft:
@@ -46,7 +49,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/scanoss@main
 
   shellcheck:
@@ -55,7 +59,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/shellcheck@main
 
   shfmt:
@@ -64,5 +69,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/shfmt@main
