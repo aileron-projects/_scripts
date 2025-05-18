@@ -48,6 +48,10 @@ inputs:
     description: "go test artifact path"
     required: false
     default: "_output/coverage*"
+  artifact-name-suffix:
+    description: "suffix of the artifact name"
+    required: false
+    default: ""
 
 runs:
   using: "composite"
@@ -66,5 +70,5 @@ runs:
         GOOS="${{ inputs.go-os }}" GOARCH="${{ inputs.go-arch }}" GOARM="${{ inputs.go-arm }}"
     - uses: actions/upload-artifact@v4
       with:
-        name: go-test-${{ inputs.go-os }}-${{ inputs.go-arch }}${{ inputs.go-arm }}
+        name: go-test-${{ inputs.go-os }}-${{ inputs.go-arch }}${{ inputs.go-arm }}${{ inputs.artifact-name-suffix }}
         path: ${{ inputs.artifact-path }}
