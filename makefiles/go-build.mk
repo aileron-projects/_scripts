@@ -1,4 +1,5 @@
 SHELL ?= /bin/bash -euo pipefail
+
 define GO_BUILD_HELP
 REQUIREMENTS:
   - go : `go` command must be available.

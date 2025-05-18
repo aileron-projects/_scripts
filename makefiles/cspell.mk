@@ -1,4 +1,5 @@
 SHELL ?= /bin/bash -euo pipefail
+
 define CSPELL_HELP
 REQUIREMENTS:
   - cspell : `cspell` command must be available.

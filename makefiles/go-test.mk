@@ -1,9 +1,9 @@
 SHELL ?= /bin/bash -euo pipefail
+
 define GO_TEST_HELP
 REQUIREMENTS:
   - go              : `go` command must be available.
   - qemu            : QEMU User space emulator must be available for `go-test-qemu` target.
-  - go-junit-report : `go-junit-report` command must be available for `go-test` target.
 
 TARGETS:
   - go-test-help   : show help message.
@@ -13,8 +13,6 @@ TARGETS:
 
 VARIABLES [default value]:
   - GO_CMD           : go command. [go]
-  - GO_JUNIT_CMD     : go-junit-report command. [$$(GOBIN)go-junit-report]
-  - GO_JUNIT_VERSION : go-junit-report version to install. [latest]
   - GO_TEST_TARGET   : go test target. [./...]
   - GO_TEST_FLAGS    : go test flags [-v -cover -covermode=atomic]
   - GO_TEST_TAGS     : tags passed to the -tags. []
@@ -35,7 +33,6 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                        |-- Go project
   ├─ _output/              |
-  │  ├─ coverage.xml       |-- Default coverage output (by go-junit-report) 
   │  ├─ coverage.html      |-- Default coverage output 
   │  ├─ coverage.txt       |-- Default coverage output 
   │  └─ coverage.func.txt  |-- Default coverage output 
@@ -55,8 +52,6 @@ go-test-help:
 #├─────────────────────────────────────────────────────────────────────────────┤
 
 GO_CMD ?= go
-GO_JUNIT_CMD ?=$(GOBIN)go-junit-report
-GO_JUNIT_VERSION ?= latest
 
 export CGO_ENABLED ?= 0
 
@@ -98,30 +93,6 @@ qemu_cmd_sparc64 := qemu-sparc64
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 
-.PHONY: go-test-install-usage
-go-test-install-usage:
-	# Usage : make go-test-install ARGS=""
-	# Exec  : $$(GO_CMD) install $$(ARGS) "github.com/jstemmer/go-junit-report/v2@$$(GO_JUNIT_VERSION)"
-	# Desc  : Install go-junit-report using `go install`.
-	# Examples:
-	#   - make go-test-install
-	#   - make go-test-install ARGS="-tags netgo"
-	#   - make go-test-install GO_JUNIT_VERSION="main"
-
-.PHONY: go-test-install
-go-test-install:
-ifeq ("go-test-install","$(MAKECMDGOALS)")
-	$(GO_CMD) install $(ARGS) "github.com/jstemmer/go-junit-report/v2@$(GO_JUNIT_VERSION)"
-	$(GO_CMD) mod tidy
-else
-ifeq (,$(shell which $(GO_JUNIT_CMD) 2>/dev/null))
-	$(GO_CMD) install $(ARGS) "github.com/jstemmer/go-junit-report/v2@$(GO_JUNIT_VERSION)"
-	$(GO_CMD) mod tidy
-endif
-endif
-
-#├─────────────────────────────────────────────────────────────────────────────┤
-
 GO_TEST_CMD := $(GO_CMD) test $(GO_TEST_FLAGS)
 GO_TEST_CMD += -tags="$(GO_TEST_TAGS)"
 GO_TEST_CMD += -coverprofile=$(GO_TEST_COVERAGE)
@@ -140,21 +111,15 @@ go-test-usage:
 .PHONY: go-test
 go-test: go-test-install
 	$(info INFO: GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED))
-	@mkdir -p $(dir $(GO_TEST_COVERAGE))
-	@for target in $(GO_TEST_TARGET); do \
-	echo ""; \
-	echo "INFO: Testing $$target"; \
-	$(GO_TEST_CMD) $(ARGS) $$target 2>&1 | tee go-test.tmp; \
-	done
+	$(GO_TEST_CMD) $(ARGS) $(GO_TEST_TARGET)
 ifneq ($(GO_TEST_COVERAGE),)
-	@cat go-test.tmp | $(GO_JUNIT_CMD) -set-exit-code -out $(basename $(GO_TEST_COVERAGE)).xml
+	mkdir -p $(dir $(GO_TEST_COVERAGE))
 	@$(GO_CMD) tool cover -html=$(GO_TEST_COVERAGE) -o $(basename $(GO_TEST_COVERAGE)).html
 	@$(GO_CMD) tool cover -func=$(GO_TEST_COVERAGE) -o $(basename $(GO_TEST_COVERAGE)).func.txt
 	@echo ================================================================================
 	@cat $(basename $(GO_TEST_COVERAGE)).func.txt
 	@echo ================================================================================
 endif
-	@rm -f go-test.tmp
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 

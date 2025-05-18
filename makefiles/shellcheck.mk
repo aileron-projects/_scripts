@@ -1,4 +1,5 @@
 SHELL ?= /bin/bash -euo pipefail
+
 define SHELLCHECK_HELP
 REQUIREMENTS:
   - shellcheck : `shellcheck` command must be available.

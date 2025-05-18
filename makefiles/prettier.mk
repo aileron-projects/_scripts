@@ -1,4 +1,5 @@
 SHELL ?= /bin/bash -euo pipefail
+
 define PRETTIER_HELP
 REQUIREMENTS:
   - prettier : `prettier` command must be available.
