@@ -1,0 +1,19 @@
+[Unit]
+Description=hello gateway service
+Documentation=https://github.com/hello-gateway/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=always
+Environment=DEPLOY_MODE=deb
+EnvironmentFile=/etc/default/hello.env
+WorkingDirectory=/var/lib/hello
+PIDFile=/run/hello.pid
+ExecStartPre=/usr/bin/rm -f /run/hello.pid
+ExecStart=/usr/bin/hello -f /etc/hello/config.yaml -e /etc/default/hello.env $EXTRA_ARGS
+ExecReload=/usr/bin/env kill -HUP $MAINPID
+TimeoutStopSec=60s
+
+[Install]
+WantedBy=multi-user.target

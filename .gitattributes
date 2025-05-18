@@ -1,0 +1,20 @@
+# See the following examples.
+# https://github.com/gitattributes/gitattributes
+
+* text=auto eol=lf
+
+*.{lf,[lL][fF]}.txt text eol=lf
+*.{crlf,[cC][rR][lL][fF]}.txt text eol=crlf
+
+*.{mk,[mM][kK]} text eol=lf
+*.{sh,[sS][hH]} text eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+*.{ps1,[pP][sS]1} text eol=crlf
+
+# Exclude from git diff.
+go.sum merge=union linguist-generated=true
+
+# Exclude from language percentage.
+/.github/* linguist-documentation
+/docs/* linguist-documentation

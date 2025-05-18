@@ -1,0 +1,58 @@
+name: Goda Dependency Graph
+description: ""
+
+inputs:
+  # ---------------------------------------------------------
+  # For setup-go. DO NOT EDIT.
+  skip-setup-go:
+    description: "skip actions/setup-go"
+    required: false
+    default: "false"
+  go-version:
+    description: "go-version for actions/setup-go"
+    required: false
+    default: "stable"
+  go-version-file:
+    description: "go-version-file for actions/setup-go"
+    required: false
+    default: ""
+  check-latest:
+    description: "check-latest for actions/setup-go"
+    required: false
+    default: "true"
+  cache:
+    description: "cache for actions/setup-go"
+    required: false
+    default: "false"
+  cache-dependency-path:
+    description: "cache-dependency-path for actions/setup-go"
+    required: false
+    default: ""
+  # ---------------------------------------------------------
+  args:
+    description: "additional args for make goda-run"
+    required: false
+    default: ""
+  artifact-path:
+    description: "dependency graph artifact path"
+    required: false
+    default: "_output/*graph*"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-go@v5
+      if: ${{ inputs.skip-setup-go != 'true' }}
+      with:
+        go-version: ${{ inputs.go-version }}
+        go-version-file: ${{ inputs.go-version-file }}
+        check-latest: ${{ inputs.check-latest }}
+        cache: ${{ inputs.cache }}
+        cache-dependency-path: ${{ inputs.cache-dependency-path }}
+    - uses: ts-graphviz/setup-graphviz@v2
+    - shell: bash
+      run: make goda-run ARGS="${{ inputs.args }}"
+    - uses: actions/upload-artifact@v4
+      with:
+        name: dependency-graph
+        path: ${{ inputs.artifact-path }}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+echo "Running postrm script:" "$@"
+#----------------------------------------------------
+
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+	if [ -z "$(ls -A /var/lib/hello/)" ]; then
+		rm -rf /var/lib/hello/
+	fi
+fi
+
+#----------------------------------------------------
+exit 0

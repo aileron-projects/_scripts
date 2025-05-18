@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+echo "Running prerm script:" "$@"
+#----------------------------------------------------
+
+# Load environmental variables if exists.
+[ -f /etc/sysconfig/hello ] && . /etc/sysconfig/hello
+
+if [ "$1" -eq 0 ]; then
+	if [ -x /bin/systemctl ]; then
+		/bin/systemctl stop hello.service >/dev/null 2>&1 || :
+	elif [ -x /etc/init.d/hello ]; then
+		/etc/init.d/hello stop
+	elif [ -x /etc/rc.d/init.d/hello ]; then
+		/etc/rc.d/init.d/hello stop
+	fi
+fi
+
+#----------------------------------------------------
+exit 0

@@ -1,0 +1,35 @@
+name: Check Shell Script
+description: ""
+
+inputs:
+  skip-setup:
+    description: "skip setting up shellcheck"
+    required: false
+    default: "false"
+  version:
+    description: "shellcheck version to install"
+    required: false
+    default: "v0.10.0"
+  args:
+    description: "additional args for make shellcheck-run"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      if: ${{ inputs.skip-setup != 'true' }}
+      env:
+        VERSION: ${{ inputs.version }}
+      run: |
+        echo "#$%&%$#$%%#$%$#$%"
+        echo "================================================"
+        pwd
+        ls -la
+        baseurl="https://github.com/koalaman/shellcheck/releases/download"
+        curl -Lo "shellcheck.tar.xz" "${baseurl}/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz"
+        tar -xf "shellcheck.tar.xz"
+        mv "shellcheck-${VERSION}/shellcheck" "./"
+    - shell: bash
+      run: make shellcheck-run SHELLCHECK_CMD=./shellcheck ARGS="${{ inputs.args }}"

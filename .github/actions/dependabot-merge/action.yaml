@@ -1,0 +1,23 @@
+name: Dependabot Automerge
+description: ""
+
+inputs:
+  github-token:
+    description: "github token to merge"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - uses: dependabot/fetch-metadata@v2
+      id: metadata
+      with:
+        github-token: "${{ inputs.github-token }}"
+    - shell: bash
+      env:
+        PR_URL: ${{ github.event.pull_request.html_url }}
+        GH_TOKEN: ${{ inputs.github-token }}
+      run: |
+        gh pr review "$PR_URL" --approve
+        gh pr merge --auto --merge "$PR_URL"

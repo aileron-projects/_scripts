@@ -1,0 +1,45 @@
+# IDE
+.vscode/
+.idea/
+
+# Project
+_output/**
+*.env.mk
+*.env
+*.test
+*.out
+*.a
+*.o
+*.so
+*.exe
+
+# Asciidoc
+.asciidoctor/
+*.html
+*.pdf
+*.epub
+*.epub3
+
+# Generated images
+docs/**/*.png
+docs/**/*.svg
+docs/**/*.pdf
+
+# Node.js
+node_modules/
+package.json
+package-lock.json
+
+# For convenience
+bin/
+tmp/
+temp/
+work/
+study/
+local/
+*.tmp
+*.temp
+
+# Exclusion
+!*.gitkeep
+!*.gitignore

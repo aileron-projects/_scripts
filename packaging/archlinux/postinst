@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+echo "Running postinst script:" "$@"
+#----------------------------------------------------
+
+# Load environmental variables if exists.
+[ -f /etc/default/hello ] && . /etc/default/hello
+
+chmod 755 /usr/bin/hello
+
+if [ ! -d /var/lib/hello/ ]; then
+	mkdir /var/lib/hello/
+	chmod 644 /var/lib/hello/
+fi
+
+#----------------------------------------------------
+exit 0

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+echo "Running postrm script:" "$@"
+#----------------------------------------------------
+
+if [ -z "$(ls -A /var/lib/hello/)" ]; then
+	rm -rf /var/lib/hello/
+fi
+
+#----------------------------------------------------
+exit 0

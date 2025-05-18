@@ -1,0 +1,30 @@
+name: Go Test
+
+on:
+  workflow_dispatch: {}
+  workflow_call: {}
+  push: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.runner }}
+    runs-on: ${{ matrix.runner }}-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        include:
+          - { runner: "ubuntu", os: "linux" }
+          - { runner: "windows", os: "windows" }
+          - { runner: "macos", os: "darwin" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aileron-projects/_scripts/.github/actions/go-test@main
+        with:
+          go-os: ${{ matrix.os }}

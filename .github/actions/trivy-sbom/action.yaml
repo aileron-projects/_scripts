@@ -1,0 +1,30 @@
+name: Trivy SBOM
+description: ""
+
+inputs:
+  skip-setup:
+    description: "skip running aquasecurity/setup-trivy"
+    required: false
+    default: "false"
+  args:
+    description: "additional args for make trivy-sbom"
+    required: false
+    default: ""
+  artifact-path:
+    description: "sbom artifact path"
+    required: false
+    default: "_output/*sbom*"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: aquasecurity/setup-trivy@v0.2.2
+      if: ${{ inputs.skip-setup != 'true' }}
+      with:
+        version: latest
+    - shell: bash
+      run: make trivy-sbom TRIVY_CMD=trivy ARGS="${{ inputs.args }}"
+    - uses: actions/upload-artifact@v4
+      with:
+        name: trivy-sbom
+        path: ${{ inputs.artifact-path }}

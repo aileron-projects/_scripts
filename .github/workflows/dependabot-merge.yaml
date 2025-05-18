@@ -1,0 +1,19 @@
+name: Dependabot Merge
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - uses: aileron-projects/_scripts/.github/actions/dependabot-merge@main
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"

@@ -1,0 +1,17 @@
+overrides:
+  - files: "**/*.md"
+    options: {}
+  - files: "**/*.{yaml,yml}"
+    options: {}
+  - files: "**/*.json"
+    options: {}
+  - files: "**/*.xml"
+    options: {}
+  - files: "**/*.toml"
+    options: {}
+  - files: "**/*.{js,jsx,ts}"
+    options: {}
+  - files: "**/*.html"
+    options: {}
+  - files: "**/*.css"
+    options: {}

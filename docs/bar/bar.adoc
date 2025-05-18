@@ -1,0 +1,15 @@
+
+= My book
+:includedir: ./bar/
+:imagesdir: ./bar/
+:sourcedir: ""
+ifdef::backend-html5[:imgext: svg]
+ifdef::backend-pdf[:imgext: png]
+ifdef::backend-epub3[:imgext: png]
+
+
+image::foo/images/mermaid.{imgext}[]
+
+image::foo/images/mermaid.{imgext}[]
+
+include::{includedir}bar.adoc[]

@@ -1,0 +1,2 @@
+== Image
+ifndef::imgext[:imgext: png]

@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+
+command="/usr/bin/hello"
+command_args="-f /etc/hello/config.yaml -e /etc/default/hello.env"
+pidfile="/run/hello.pid"
+
+checkconfig() {
+  return 0
+}
+
+start_pre() {
+  if [ "${RC_CMD}" != "restart" ]; then
+    checkconfig || return $?
+  fi
+}
+
+stop_pre() {
+  if [ "${RC_CMD}" = "restart" ]; then
+    checkconfig || return $?
+  fi
+}
+
+start() {
+  ebegin "Starting hello gateway"
+  start-stop-daemon --start --pidfile "${pidfile}" --background --make-pidfile --exec "${command}" -- ${command_args}
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping hello gateway"
+  start-stop-daemon --stop --pidfile "${pidfile}"
+  eend $?
+}

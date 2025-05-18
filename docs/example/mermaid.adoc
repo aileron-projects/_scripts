@@ -1,0 +1,22 @@
+== Mermaid
+ifndef::imgext[:imgext: png]
+
+mermaid::{imagesdir}images/mermaid.mmd[]
+
+[mermaid]
+....
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>Bob: Hello Bob, how are you?
+  Bob-->>Alice: Great!
+....
+
+
+[mermaid]
+....
+classDiagram
+  BaseClass |>-- Server
+  BaseClass |>-- Client
+  BaseClass |>-- Util
+....

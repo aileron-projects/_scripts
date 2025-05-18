@@ -1,0 +1,19 @@
+[Unit]
+Description=hello service
+Documentation=
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=always
+Environment=DEPLOY_MODE=rpm
+EnvironmentFile=/etc/sysconfig/hello
+WorkingDirectory=/var/lib/hello
+PIDFile=/run/hello.pid
+ExecStartPre=/usr/bin/rm -f /run/hello.pid
+ExecStart=/usr/bin/hello -f /etc/hello/config.yaml -e /etc/sysconfig/hello.env $EXTRA_ARGS
+ExecReload=/usr/bin/env kill -HUP $MAINPID
+TimeoutStopSec=30s
+
+[Install]
+WantedBy=multi-user.target

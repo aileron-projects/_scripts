@@ -1,0 +1,22 @@
+name: Scan OSS
+description: ""
+
+inputs:
+  skip-setup:
+    description: "skip running actions/setup-python"
+    required: false
+    default: "false"
+  args:
+    description: "additional args for make shfmt-run"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      if: ${{ inputs.skip-setup != 'true' }}
+      with:
+        python-version: 3.x
+    - shell: bash
+      run: make scanoss-run ARGS="${{ inputs.args }}"
