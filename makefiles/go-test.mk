@@ -14,7 +14,7 @@ TARGETS:
 VARIABLES [default value]:
   - GO_CMD           : go command. [go]
   - GO_TEST_TARGET   : go test target. [./...]
-  - GO_TEST_FLAGS    : go test flags [-v -cover -covermode=atomic]
+  - GO_TEST_FLAGS    : go test flags [-v -cover -covermode=atomic -timeout 30s]
   - GO_TEST_TAGS     : tags passed to the -tags. []
   - GO_TEST_COVERAGE : coverage profile output path. [_output/coverage.txt]
 
@@ -71,7 +71,7 @@ OS_ARCH := $(GOOS)-$(GOARCH)$(GOARM)
 endif
 
 GO_TEST_TARGET ?= ./...
-GO_TEST_FLAGS ?= -v -cover -covermode=atomic
+GO_TEST_FLAGS ?= -v -cover -covermode=atomic -timeout 30s
 GO_TEST_TAGS ?=
 GO_TEST_COVERAGE ?= _output/coverage.txt
 
