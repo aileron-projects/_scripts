@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define TRIVY_HELP
 REQUIREMENTS:
   - trivy : `trivy` command must be available.

@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define GO_TEST_HELP
 REQUIREMENTS:
   - go              : `go` command must be available.
@@ -179,7 +179,8 @@ go-test-qemu:
 	echo ""; \
 	echo "INFO: Testing $$target"; \
 	$(GO_TEST_CMD) $(ARGS) -c -o $$target $$target; \
-	find $$target -name "*.test" | xargs -i bash -c "cd $$target && $(qemu_cmd_$(GOARCH)) {}; rm -f {}"; \
+	cd $$target && test -n *.test && test -f *.test && $(qemu_cmd_$(GOARCH)) *.test; \
+	rm -f *.test; \
 	done
 
 #├─────────────────────────────────────────────────────────────────────────────┤

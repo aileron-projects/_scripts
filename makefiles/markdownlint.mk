@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define MARKDOWNLINT_HELP
 REQUIREMENTS:
   - markdownlint : `markdownlint` command must be available.

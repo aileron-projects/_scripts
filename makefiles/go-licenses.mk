@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 
 define GO_LICENSES_HELP
 REQUIREMENTS:

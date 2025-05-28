@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define NFPM_HELP
 REQUIREMENTS:
   - nfpm : `nfpm` command must be available.

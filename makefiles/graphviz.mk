@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define GRAPHVIZ_HELP
 REQUIREMENTS:
   - graphviz : `graphviz` command must be available.

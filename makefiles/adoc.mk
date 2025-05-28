@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define ADOC_HELP
 REQUIREMENTS:
   - asciidoctor       : `asciidoctor` is required for the `asciidoc-html`.

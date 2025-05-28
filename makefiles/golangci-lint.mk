@@ -1,4 +1,4 @@
-SHELL ?= /bin/bash -euo pipefail
+SHELL := /bin/bash -euo pipefail
 define GOLANGCI_LINT_HELP
 REQUIREMENTS:
   - golangci-lint : `golangci-lint` command must be available.
