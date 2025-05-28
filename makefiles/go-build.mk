@@ -31,7 +31,7 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                     |-- Go project
   ├─ _output/           |
-  │  └─ bin/            |-- Default binary output path 
+  │  └─ bin/            |-- Default binary output path
   ├─ _scripts/          |-- Git submodule
   │  └─ makefiles/      |
   │     └─ go-build.mk  |

@@ -45,7 +45,7 @@ GO_CMD ?= go
 GOVULNCHECK_CMD ?= $(GOBIN)govulncheck
 GOVULNCHECK_VERSION ?= latest
 GOVULNCHECK_TARGET ?= ./...
-GOVULNCHECK_OPTION ?= 
+GOVULNCHECK_OPTION ?=
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 

@@ -101,7 +101,7 @@ go-fmt-usage:
 .PHONY: go-fmt
 go-fmt:
 	$(GOFMT_CMD) $(ARGS) $(GO_FMT_OPTION) $(GO_FMT_TARGET) > gofmt.tmp
-	@cat gofmt.tmp 
+	@cat gofmt.tmp
 	@if [ ! -s gofmt.tmp ]; then \
 	rm -f gofmt.tmp; exit 0; \
 	else \

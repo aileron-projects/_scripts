@@ -27,7 +27,7 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                    |-- Project
   ├─ _output/          |
-  │  └─ scanoss.json   |-- Default scan result file 
+  │  └─ scanoss.json   |-- Default scan result file
   ├─ _scripts/         |-- Git submodule
   │  └─ makefiles/     |
   │     └─ scanoss.mk  |
@@ -45,7 +45,7 @@ SCANOSS_CMD ?= scanoss-py
 SCANOSS_TARGET ?= ./
 SCANOSS_OUTPUT ?= _output/scanoss.json
 SCANOSS_OPTION_SCAN ?= --no-wfp-output
-SCANOSS_OPTION_INSPECT ?= copyleft 
+SCANOSS_OPTION_INSPECT ?= copyleft
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 

@@ -55,7 +55,7 @@ GODA_CMD ?= $(GOBIN)goda
 GODA_VERSION ?= latest
 GODA_TARGET ?= ./...
 GODA_OUTPUT ?= _output/dependency-graph.dot
-GODA_OPTION ?= 
+GODA_OPTION ?=
 GRAPHVIZ_CMD ?= dot
 
 #├─────────────────────────────────────────────────────────────────────────────┤

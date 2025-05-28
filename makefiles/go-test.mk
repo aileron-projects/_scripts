@@ -35,10 +35,10 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                        |-- Go project
   ├─ _output/              |
-  │  ├─ coverage.xml       |-- Default coverage output (by go-junit-report) 
-  │  ├─ coverage.html      |-- Default coverage output 
-  │  ├─ coverage.txt       |-- Default coverage output 
-  │  └─ coverage.func.txt  |-- Default coverage output 
+  │  ├─ coverage.xml       |-- Default coverage output (by go-junit-report)
+  │  ├─ coverage.html      |-- Default coverage output
+  │  ├─ coverage.txt       |-- Default coverage output
+  │  └─ coverage.func.txt  |-- Default coverage output
   ├─ _scripts/             |-- Git submodule
   │  └─ makefiles/         |
   │     └─ go-test.mk      |
@@ -173,7 +173,7 @@ go-test-qemu-usage:
 	#   "qemu-user" is only available on linux.
 	#   For example, run << sudo apt-get -y update & sudo apt-get install -y qemu-user >>
 .PHONY: go-test-qemu
-go-test-qemu: 
+go-test-qemu:
 	$(info INFO: GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED))
 	@for target in $(QEMU_TARGET); do \
 	echo ""; \

@@ -34,7 +34,7 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                 |-- Project
   ├─ _output/       |
-  │  └─ pkg/*       |-- Default package output path 
+  │  └─ pkg/*       |-- Default package output path
   ├─ _scripts/      |-- Git submodule
   │  └─ makefiles/  |
   │     └─ nfpm.mk  |

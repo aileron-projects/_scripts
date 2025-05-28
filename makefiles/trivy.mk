@@ -31,7 +31,7 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                  |-- Project
   ├─ _output/        |
-  │  └─ sbom.json    |-- Default sbom output file 
+  │  └─ sbom.json    |-- Default sbom output file
   ├─ _scripts/       |-- Git submodule
   │  └─ makefiles/   |
   │     └─ trivy.mk  |

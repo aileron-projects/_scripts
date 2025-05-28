@@ -17,7 +17,7 @@ VARIABLES [default value]:
   - GO_LICENSES_VERSION       : go-licenses version to install. [latest]
   - GO_LICENSES_TARGET        : target for check and report. [./...]
   - GO_LICENSES_OUTPUT        : license list output file. [_output/go-licenses.csv]
-  - GO_LICENSES_OPTION_CHECK  : command line option for check. [--allowed_licenses=MIT,Apache-2.0,BSD-2-Clause,BSD-3-Clause,BSD-4-Clause]
+  - GO_LICENSES_OPTION_CHECK  : command line option for check. [--allowed_licenses=MIT,Apache-2.0,BSD-2-Clause,BSD-3-Clause,BSD-4-Clause,ISC]
   - GO_LICENSES_OPTION_REPORT : command line option for report. []
 
 REFERENCES:
@@ -32,7 +32,7 @@ IDE INTEGRATIONS:
 PROJECT STRUCTURE:
   /                        |-- Go Project
   ├─ _output/              |
-  │  └─ go-licenses.csv    |-- Default licenses output 
+  │  └─ go-licenses.csv    |-- Default licenses output
   ├─ _scripts/             |-- Git submodule
   │  └─ makefiles/         |
   │     └─ go-licenses.mk  |
@@ -54,7 +54,7 @@ GO_LICENSES_VERSION ?= latest
 GO_LICENSES_TARGET ?= ./...
 GO_LICENSES_OUTPUT ?= _output/go-licenses.csv
 GO_LICENSES_OPTION_CHECK ?= --allowed_licenses=MIT,Apache-2.0,BSD-2-Clause,BSD-3-Clause,BSD-4-Clause,ISC
-GO_LICENSES_OPTION_REPORT ?= 
+GO_LICENSES_OPTION_REPORT ?=
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 

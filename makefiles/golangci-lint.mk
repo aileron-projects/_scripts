@@ -48,7 +48,7 @@ GO_CMD ?= go
 GOLANGCI_LINT_CMD ?= $(GOBIN)golangci-lint
 GOLANGCI_LINT_VERSION ?= latest
 GOLANGCI_LINT_TARGET ?= ./...
-GOLANGCI_LINT_OPTION ?= 
+GOLANGCI_LINT_OPTION ?=
 
 #├─────────────────────────────────────────────────────────────────────────────┤
 

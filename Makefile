@@ -1,3 +1,4 @@
+SHELL := /bin/bash -euo pipefail
 
 # Help is in util.mk
 .DEFAULT_GOAL:=help
