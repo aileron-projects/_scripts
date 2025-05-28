@@ -1,4 +1,5 @@
 SHELL := /bin/bash -euo pipefail
+
 define GODA_HELP
 REQUIREMENTS:
   - dot  : `dot` command (graphviz) must be available.

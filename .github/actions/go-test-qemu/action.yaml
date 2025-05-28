@@ -57,6 +57,10 @@ runs:
         cache: ${{ inputs.cache }}
         cache-dependency-path: ${{ inputs.cache-dependency-path }}
     - shell: bash
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install qemu-user
+    - shell: bash
       run: go tool dist list
     - shell: bash
       run: |

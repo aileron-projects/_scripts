@@ -1,4 +1,5 @@
 SHELL := /bin/bash -euo pipefail
+
 define MERMAID_HELP
 REQUIREMENTS:
   - mermaid : `mmdc` command must be available.

@@ -1,4 +1,5 @@
 SHELL := /bin/bash -euo pipefail
+
 define SHFMT_HELP
 REQUIREMENTS:
   - shfmt : `shfmt` command must be available.

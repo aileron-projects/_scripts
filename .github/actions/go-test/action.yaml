@@ -61,10 +61,16 @@ runs:
         cache: ${{ inputs.cache }}
         cache-dependency-path: ${{ inputs.cache-dependency-path }}
     - shell: bash
+      id: go-version
+      run: |
+        v=$(go env GOVERSION)
+        echo "v=${v}"
+        echo "v=${v}" >> $GITHUB_OUTPUT
+    - shell: bash
       run: |
         make go-test ARGS="${{ inputs.args }}" \
         GOOS="${{ inputs.go-os }}" GOARCH="${{ inputs.go-arch }}" GOARM="${{ inputs.go-arm }}"
     - uses: actions/upload-artifact@v4
       with:
-        name: go-test-${{ inputs.go-os }}-${{ inputs.go-arch }}${{ inputs.go-arm }}
+        name: test-${{ inputs.go-os }}-${{ inputs.go-arch }}${{ inputs.go-arm }}-${{ steps.go-version.outputs.v }}
         path: ${{ inputs.artifact-path }}

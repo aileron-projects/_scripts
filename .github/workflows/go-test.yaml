@@ -25,6 +25,9 @@ jobs:
           - { runner: "macos", os: "darwin" }
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
       - uses: aileron-projects/_scripts/.github/actions/go-test@main
         with:
           go-os: ${{ matrix.os }}

@@ -1,4 +1,5 @@
 SHELL ?= /bin/bash
+
 define SCANOSS_HELP
 REQUIREMENTS:
   - scanoss-py : `scanoss-py` command must be available.

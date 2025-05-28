@@ -1,4 +1,5 @@
 SHELL := /bin/bash -euo pipefail
+
 define PLANTUML_HELP
 REQUIREMENTS:
   - plantuml : `plantuml` command must be available.

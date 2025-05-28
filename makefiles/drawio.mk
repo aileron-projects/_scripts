@@ -1,4 +1,5 @@
 SHELL := /bin/bash -euo pipefail
+
 define DRAWIO_HELP
 REQUIREMENTS:
   - drawio : `drawio` command must be available.
