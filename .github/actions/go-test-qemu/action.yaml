@@ -2,7 +2,7 @@ name: Go Test QEMU
 description: ""
 inputs:
   # ---------------------------------------------------------
-  # For setup-go. DO NOT EDIT.
+  # For setup-go.
   skip-setup-go:
     description: "skip actions/setup-go"
     required: false
