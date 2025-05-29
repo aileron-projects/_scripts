@@ -1,17 +1,20 @@
-# IDE
+# Ignore files.
+*.mk
+*.env
+*.test
+*.tmp
+*.temp
+
+# Ignore directory.
+_output/**
+bin/
+tmp/
+temp/
+work/
+study/
+local/
 .vscode/
 .idea/
-
-# Project
-_output/**
-/*.env.mk
-/*.env
-*.test
-*.out
-*.a
-*.o
-*.so
-*.exe
 
 # Asciidoc
 .asciidoctor/
@@ -24,22 +27,3 @@ _output/**
 docs/**/*.png
 docs/**/*.svg
 docs/**/*.pdf
-
-# Node.js
-node_modules/
-package.json
-package-lock.json
-
-# For convenience
-bin/
-tmp/
-temp/
-work/
-study/
-local/
-*.tmp
-*.temp
-
-# Exclusion
-!*.gitkeep
-!*.gitignore
