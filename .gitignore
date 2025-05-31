@@ -1,5 +1,4 @@
 # Ignore files.
-*.mk
 *.env
 *.test
 *.tmp

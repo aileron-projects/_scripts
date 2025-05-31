@@ -7,12 +7,13 @@ SHELL := /bin/bash -euo pipefail
 # $(shell mkdir -p bin/)
 # export GOBIN := $(CURDIR)/bin/
 
-ifneq (,$(wildcard .env.mk))
-  include .env.mk
-endif
-ifneq (,$(wildcard .env))
-  include .env
-endif
+# Load local env.
+# ifneq (,$(wildcard .env.mk))
+#   include .env.mk
+# endif
+# ifneq (,$(wildcard .env))
+#   include .env
+# endif
 
 include makefiles/adoc.mk
 include makefiles/cspell.mk
