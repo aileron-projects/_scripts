@@ -147,6 +147,6 @@ go-test-qemu:
 	$(GO_TEST_CMD) $(ARGS) -c -o $$target $$target; \
 	find $$target -name "*.test" | xargs -i bash -c "cd $$target && $(qemu_cmd_$(GOARCH)) {} || echo $$target >> $(CURDIR)/fails.txt; rm -f {}"; \
 	done
-	test -f fails.txt && echo "==" && cat fails.txt && rm -f fails.txt && exit 255
+	if [[ -f fails.txt ]]; then echo "=====" && cat fails.txt && rm -f fails.txt && exit 255; fi
 
 #├─────────────────────────────────────────────────────────────────────────────┤
