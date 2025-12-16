@@ -1,4 +1,4 @@
-name: Go Test QEMU
+name: Unit Tests
 
 on:
   workflow_dispatch: {}
@@ -13,7 +13,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  unit-test:
+    name: ${{ matrix.runner }}
+    runs-on: ${{ matrix.runner }}-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: "ubuntu", os: "linux" }
+          - { runner: "windows", os: "windows" }
+          - { runner: "macos", os: "darwin" }
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      - uses: aileron-projects/_scripts/.github/actions/go-test@main
+        with:
+          go-os: ${{ matrix.os }}
+          go-version-file: go.mod
+
+  unit-test-qemu:
     name: ${{ matrix.arch }}${{ matrix.arm }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
