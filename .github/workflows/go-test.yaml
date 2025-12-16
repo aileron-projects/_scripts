@@ -32,4 +32,4 @@ jobs:
       - uses: aileron-projects/_scripts/.github/actions/go-test@main
         with:
           go-os: ${{ matrix.os }}
-          go-version: stable
+          go-version-file: go.mod

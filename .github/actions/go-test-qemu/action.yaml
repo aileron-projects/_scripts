@@ -10,7 +10,7 @@ inputs:
   go-version:
     description: "go-version for actions/setup-go"
     required: false
-    default: "stable"
+    default: ""
   go-version-file:
     description: "go-version-file for actions/setup-go"
     required: false

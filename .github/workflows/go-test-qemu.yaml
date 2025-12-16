@@ -45,3 +45,4 @@ jobs:
         with:
           go-arch: ${{ matrix.arch }}
           go-arm: ${{ matrix.arm }}
+          go-version-file: go.mod
