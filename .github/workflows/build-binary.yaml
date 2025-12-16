@@ -3,13 +3,6 @@ name: Build Binary
 on:
   workflow_call: {}
 
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref_name }}
-  cancel-in-progress: true
-
 jobs:
   build:
     name: ${{ matrix.os }}-${{ matrix.arch }}${{ matrix.arm }}
