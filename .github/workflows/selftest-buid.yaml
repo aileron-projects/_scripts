@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   binary:
-    uses: .github/workflows/build-binary.yaml@main
+    uses: ./.github/workflows/build-binary.yaml
   package:
-    need: binary
-    uses: .github/workflows/build-package.yaml@main
+    needs: binary
+    uses: ./.github/workflows/build-package.yaml

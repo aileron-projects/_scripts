@@ -10,8 +10,8 @@ concurrency:
 
 jobs:
   common:
-    uses: .github/workflows/check-suite-common.yaml@main
+    uses: ./.github/workflows/check-suite-common.yaml
   go:
-    uses: .github/workflows/check-suite-go.yaml@main
+    uses: ./.github/workflows/check-suite-go.yaml
   scheduled:
-    uses: .github/workflows/check-suite-scheduled.yaml@main
+    uses: ./.github/workflows/check-suite-scheduled.yaml

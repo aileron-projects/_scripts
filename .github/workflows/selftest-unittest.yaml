@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   binary:
-    uses: .github/workflows/unit-test-go.yaml@main
+    uses: ./.github/workflows/unit-test-go.yaml
   package:
-    need: binary
-    uses: .github/workflows/unit-test-qemu.yaml@main
+    needs: binary
+    uses: ./.github/workflows/unit-test-qemu.yaml

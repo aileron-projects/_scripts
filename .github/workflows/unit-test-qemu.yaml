@@ -1,4 +1,4 @@
-name: Unit Test Go
+name: Unit Test QEMU
 
 on:
   workflow_call: {}
