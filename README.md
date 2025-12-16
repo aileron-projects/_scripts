@@ -35,7 +35,6 @@ Currently following tools available.
 
 | Makefile                                         | Help commands             | Description                      |
 | ------------------------------------------------ | ------------------------- | :------------------------------- |
-| [adoc.mk](./makefiles/adoc.mk)                   | `make adoc-help`          | Export documents from `*.adoc`   |
 | [cspell.mk](./makefiles/cspell.mk)               | `make cspell-help`        | Run spell check with cspell      |
 | [drawio.mk](./makefiles/drawio.mk)               | `make drawio-help`        | Export images from `*.drawio`    |
 | [go-build.mk](./makefiles/go-build.mk)           | `make go-build-help`      | Build go applications            |
@@ -62,7 +61,6 @@ Currently following tools available.
 ```bash
 $ make list
 Makefile
-makefiles/adoc.mk
 makefiles/cspell.mk
 makefiles/drawio.mk
 makefiles/go-build.mk
@@ -91,7 +89,6 @@ makefiles/util.mk
 $ make help
 Help Commands
 -------------
-make adoc-help
 make cspell-help
 make drawio-help
 make go-build-help

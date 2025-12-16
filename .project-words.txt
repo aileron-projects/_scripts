@@ -1,6 +1,4 @@
 admonitionblock
-adoc
-ADOC
 aquasecurity
 Aquinnah
 archlinux
