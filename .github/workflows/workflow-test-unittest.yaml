@@ -1,0 +1,15 @@
+name: Workflow Test UnitTest
+
+on:
+  workflow_dispatch: {}
+  push: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  go:
+    uses: ./.github/workflows/unit-test-go.yaml
+  qemu:
+    uses: ./.github/workflows/unit-test-qemu.yaml

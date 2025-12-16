@@ -15,14 +15,7 @@ local/
 .vscode/
 .idea/
 
-# Asciidoc
-.asciidoctor/
-*.html
-*.pdf
-*.epub
-*.epub3
-
-# Generated images
+# Generated files
 docs/**/*.png
 docs/**/*.svg
 docs/**/*.pdf

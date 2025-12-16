@@ -1,16 +1,7 @@
-name: Check Suite
+name: Check Suite Go
 
 on:
-  workflow_dispatch: {}
   workflow_call: {}
-  push: {}
-
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref_name }}
-  cancel-in-progress: true
 
 jobs:
   format:

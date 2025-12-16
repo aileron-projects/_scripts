@@ -1,0 +1,17 @@
+name: Workflow Test Check
+
+on:
+  workflow_dispatch: {}
+  push: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  common:
+    uses: ./.github/workflows/check-suite-common.yaml
+  go:
+    uses: ./.github/workflows/check-suite-go.yaml
+  scheduled:
+    uses: ./.github/workflows/check-suite-scheduled.yaml

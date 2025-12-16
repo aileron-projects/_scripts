@@ -1,12 +1,7 @@
 admonitionblock
-adoc
-ADOC
 aquasecurity
 Aquinnah
 archlinux
-asciidoctor
-Asciidoctor
-asciimath
 audioblock
 autoplay
 autowidth
@@ -115,7 +110,6 @@ mxgraph
 netgo
 nfpm
 NFPM
-noasciimath
 nocache
 nolatexmath
 nostem

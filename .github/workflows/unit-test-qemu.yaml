@@ -1,16 +1,7 @@
-name: Go Test QEMU
+name: Unit Test QEMU
 
 on:
-  workflow_dispatch: {}
   workflow_call: {}
-  push: {}
-
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref_name }}
-  cancel-in-progress: true
 
 jobs:
   test:
@@ -45,3 +36,4 @@ jobs:
         with:
           go-arch: ${{ matrix.arch }}
           go-arm: ${{ matrix.arm }}
+          go-version-file: go.mod

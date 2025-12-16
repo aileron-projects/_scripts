@@ -1,0 +1,26 @@
+name: Build Package
+
+on:
+  workflow_call: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      - uses: actions/download-artifact@v4
+        with:
+          path: _output/artifacts/
+      - run: |
+          mkdir -p _output/bin/
+          mv _output/artifacts/*/* _output/bin/
+          ls -la _output/bin/
+      - uses: aileron-projects/_scripts/.github/actions/pkg-build@main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: "_output/pkg/*"

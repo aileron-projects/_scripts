@@ -1,0 +1,13 @@
+name: Workflow Test Generate
+
+on:
+  workflow_dispatch: {}
+  push: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    uses: ./.github/workflows/generate-suite.yaml

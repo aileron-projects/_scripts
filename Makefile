@@ -15,7 +15,6 @@ SHELL := /bin/bash -euo pipefail
 #   include .env
 # endif
 
-include makefiles/adoc.mk
 include makefiles/cspell.mk
 include makefiles/drawio.mk
 include makefiles/go-build.mk
