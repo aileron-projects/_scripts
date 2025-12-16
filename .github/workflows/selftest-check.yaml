@@ -1,0 +1,17 @@
+name: Check
+
+on:
+  workflow_dispatch: {}
+  push: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  common:
+    uses: .github/workflows/check-suite-common.yaml@main
+  go:
+    uses: .github/workflows/check-suite-go.yaml@main
+  scheduled:
+    uses: .github/workflows/check-suite-scheduled.yaml@main

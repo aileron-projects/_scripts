@@ -1,11 +1,7 @@
 name: Check Suite Scheduled
 
 on:
-  workflow_dispatch: {}
   workflow_call: {}
-  push: {}
-  schedule:
-    - cron: "0 20 * * *"
 
 permissions:
   contents: read
@@ -24,3 +20,13 @@ jobs:
           fetch-depth: 0
           submodules: true
       - uses: aileron-projects/_scripts/.github/actions/govulncheck@main
+
+  copyleft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      - uses: aileron-projects/_scripts/.github/actions/scanoss@main

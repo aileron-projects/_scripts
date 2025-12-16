@@ -1,0 +1,16 @@
+name: Build
+
+on:
+  workflow_dispatch: {}
+  push: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  binary:
+    uses: .github/workflows/unit-test-go.yaml@main
+  package:
+    need: binary
+    uses: .github/workflows/unit-test-qemu.yaml@main

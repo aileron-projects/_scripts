@@ -1,9 +1,7 @@
-name: Build
+name: Build Binary
 
 on:
-  workflow_dispatch: {}
   workflow_call: {}
-  push: {}
 
 permissions:
   contents: read
@@ -71,25 +69,3 @@ jobs:
         with:
           name: ${{ matrix.os }}-${{ matrix.arch }}${{ matrix.arm }}
           path: "_output/bin/*"
-
-  package:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: true
-      - uses: actions/download-artifact@v4
-        with:
-          path: _output/artifacts/
-      - run: |
-          mkdir -p _output/bin/
-          mv _output/artifacts/*/* _output/bin/
-          ls -la _output/bin/
-      - uses: aileron-projects/_scripts/.github/actions/pkg-build@main
-      - uses: actions/upload-artifact@v4
-        with:
-          name: packages
-          path: "_output/pkg/*"

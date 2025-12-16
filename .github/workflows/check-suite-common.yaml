@@ -1,9 +1,7 @@
 name: Check Suite Common
 
 on:
-  workflow_dispatch: {}
   workflow_call: {}
-  push: {}
 
 permissions:
   contents: read
@@ -42,16 +40,6 @@ jobs:
           fetch-depth: 0
           submodules: true
       - uses: aileron-projects/_scripts/.github/actions/prettier@main
-
-  copyleft:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: true
-      - uses: aileron-projects/_scripts/.github/actions/scanoss@main
 
   shellcheck:
     runs-on: ubuntu-latest

@@ -1,9 +1,7 @@
-name: Unit Tests
+name: Unit Test Go
 
 on:
-  workflow_dispatch: {}
   workflow_call: {}
-  push: {}
 
 permissions:
   contents: read
@@ -13,28 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  unit-test:
-    name: ${{ matrix.runner }}
-    runs-on: ${{ matrix.runner }}-latest
-    timeout-minutes: 15
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - { runner: "ubuntu", os: "linux" }
-          - { runner: "windows", os: "windows" }
-          - { runner: "macos", os: "darwin" }
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: true
-      - uses: aileron-projects/_scripts/.github/actions/go-test@main
-        with:
-          go-os: ${{ matrix.os }}
-          go-version-file: go.mod
-
-  unit-test-qemu:
+  test:
     name: ${{ matrix.arch }}${{ matrix.arm }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
