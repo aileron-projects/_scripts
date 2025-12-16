@@ -99,15 +99,13 @@ rpm:
   # signature:
   #   key_file: ./0x52ADAB4B-sec.gpg
   #   key_id: 1C88AAC752ADAB4B
-deb:
-  {}
+deb: {}
   # signature:
   #   method: debsign
   #   key_file: ./0x52ADAB4B-sec.gpg
   #   type: origin
   #   key_id: 1C88AAC752ADAB4B
-apk:
-  {}
+apk: {}
   # signature:
   #   key_file: ./rsa-private.pem
   #   key_name: origin
