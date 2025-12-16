@@ -1,4 +1,4 @@
-name: Self Test Check
+name: Workflow Test Check
 
 on:
   workflow_dispatch: {}
