@@ -1,4 +1,4 @@
-name: Generate
+name: Self Test Generate
 
 on:
   workflow_dispatch: {}

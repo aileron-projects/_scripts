@@ -1,4 +1,4 @@
-name: Build
+name: Self Test Build
 
 on:
   workflow_dispatch: {}

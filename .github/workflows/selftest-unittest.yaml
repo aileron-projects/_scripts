@@ -1,4 +1,4 @@
-name: Build
+name: Self Test Build
 
 on:
   workflow_dispatch: {}
@@ -9,8 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  binary:
+  go:
     uses: ./.github/workflows/unit-test-go.yaml
-  package:
-    needs: binary
+  qemu:
     uses: ./.github/workflows/unit-test-qemu.yaml
